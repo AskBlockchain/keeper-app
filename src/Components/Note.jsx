@@ -1,10 +1,11 @@
 import React from "react";
 
 
-function Note({ title, content, delClicked }) {
+function Note({ title, content, delClicked, id }) {
+  /* I've destructured the props variable */
 
   let deleteNote = () => {
-    delClicked()
+    delClicked(id)
   }
  
 
@@ -12,6 +13,7 @@ function Note({ title, content, delClicked }) {
     <div className="note">
       <h1>{title}</h1>
       <p>{content}</p>
+      
       <button onClick={deleteNote}>DELETE</button>
     </div>
   );

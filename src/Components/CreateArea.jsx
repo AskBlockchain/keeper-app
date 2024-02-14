@@ -30,10 +30,10 @@ let handleChange = (event) => {
 // }
 
 
-let addNewNote = (e) => {
+let addNewNote = (event) => {
   props.onAdd(note) // I'm getting the Function addNote from App and passing back the note Object
   setNote({ title: "", content: "" }); // Reset input fields after adding note
-  e.preventDefault()
+  event.preventDefault()
 }
 
   

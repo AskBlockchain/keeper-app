@@ -18,7 +18,14 @@ function App() {
     console.log(note, notes)
   }
 
-  let handleDelete = () => console.log("Delete Clicked and I'm in App") 
+  let handleDelete = (id) =>{ 
+    setNotes(preV => {
+      return preV.filter((noteItem, index) => {
+        return index !== id;
+      }) 
+    })
+    console.log("Delete Clicked and I'm in App")
+  } 
 
 
  
@@ -29,12 +36,15 @@ function App() {
       <Header />
       <CreateArea onAdd={addNote} />
 
-      {notes.map((singleNote) => {
+      {notes.map((singleNote, index) => {
+       /* We can create this Function in the Return Statement
+        This Note Component only instatiate when the first note is added */
         return <Note 
         title={singleNote.title} 
         content={singleNote.content}
         delClicked={handleDelete} 
-        
+        key={index}
+        id={index}       
         />
       })}  
 
